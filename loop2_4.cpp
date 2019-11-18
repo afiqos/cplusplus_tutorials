@@ -13,28 +13,42 @@ int main()
 	// number of blanks surrounnding the greeting
 	const int pad = 1;
 
+	const std::string::size_type cols = greeting.size() + pad * 2 + 2;	
+
 	// total number of rows to write
 	const int rows = pad * 2 + 3;
+
 
 	// separate the output from the input
 	std::cout << std::endl;
 
 	// write rows rows of output
 	int r = 0;
-	// setting r to 0 makes the invariant true
+	
 	// invariant: we have written r rows so far
-	while (r != row) {
-		// can assume the invariant is true here
+	while (r != rows) {
 
 		// write a row of output (described in section 2.4)
-		// writing a row of output makes the invariant false, cause invariant says
-		// "We have written 0 rows so far" but we already wrote a row of output.
-		std::cout << std;:endl;
+		// std::cout << std::endl;
 
-		// incrementing r makes the invariant true again
+		std::string:size_type c = 0;
+
+		// invariant: we have written c characters so far in current row
+		while (c != cols) {
+			if (r == 0 || r == rows - 1 || c == 0 || c == cols - 1) {
+				std::cout << "*";
+
+			} else {
+
+
+			}
+			// write one or more characters
+			// adjust the value of c to maintain the invariant
+
+		}
+
 		++r;
 	}
-	// can conclude the invariant is true here
 
 	return 0;
 }
@@ -80,3 +94,20 @@ int main()
 
 */
 
+/*
+	std::string::size_type
+
+	declaring size_type type to hold the number of characters in a string. Much more suitable
+		than using int. This can size_type can handle no matter how large the number of
+		characters in greeting var. int might be unable to hold an input string that is too
+		long, every int variable can take on values up to at least 32767. (but for rows, int
+		is suitable as it depends on var 'pad' which we control and not user controls. 
+		Note: since its std::string::size_type, means its an unsigned type-objects, cannot 
+			handle negative values, since impossible for string to contain a negative number
+			of characters. 
+
+	the ' if (r == 0 || r == rows - 1 || c == 0 || c == cols - 1)'
+		can derived using analogous reasoning of the invariants. 
+		- want to write '*' on first and last row, or on first or last column.
+
+*/
