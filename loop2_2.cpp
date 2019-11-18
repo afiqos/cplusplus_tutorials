@@ -14,7 +14,7 @@ int main()
 	const int pad = 1;
 
 	// total number of rows to write
-	const int rows = pad * 2 = 3;
+	const int rows = pad * 2 + 3;
 
 	return 0;
 }
